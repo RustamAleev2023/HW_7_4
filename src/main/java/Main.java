@@ -159,6 +159,13 @@ public class Main {
         System.out.println(arrayList1);
         System.out.println(arrayList1.lastIndexOf(3));
         System.out.println("=======================");
+        arrayList1.trimToSize();
+        arrayList1.reverse();
+        System.out.println(arrayList1);
+        System.out.println("=======================");
+        arrayList1.shuffle();
+        System.out.println(arrayList1);
+        System.out.println("=======================");
 
 
     }

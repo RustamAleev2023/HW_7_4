@@ -1,6 +1,8 @@
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.StringJoiner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class MyArrayList<T> {
     private T[] data;
@@ -177,5 +179,25 @@ public class MyArrayList<T> {
             }
         }
         return result;
+    }
+
+    public void reverse(){
+        T temp;
+        for (int i = 0; i < data.length / 2 + 1; i++) {
+           temp = data[i];
+           data[i] = data[data.length - 1 - i];
+            data[data.length - 1 - i] = temp;
+        }
+    }
+
+    public void shuffle(){
+        Random rnd = ThreadLocalRandom.current();
+        for (int i = data.length - 1; i > 0; i--)
+        {
+            int index = rnd.nextInt(i + 1);
+            T a = data[index];
+            data[index] = data[i];
+            data[i] = a;
+        }
     }
 }

@@ -21,6 +21,11 @@ public class MyArrayList<T> {
         return size;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+
     @Override
     public String toString() {
         StringJoiner joiner = new StringJoiner(" ");
@@ -137,5 +142,40 @@ public class MyArrayList<T> {
             data[i] = null;
         }
         size = 0;
+    }
+
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
+    public void trimToSize(){
+        capacity = size;
+        T[] temp = Arrays.copyOf(data,size);
+        data = (T[]) new Object[capacity];
+        for (int i = 0; i < data.length; i++) {
+            data[i] = temp[i];
+        }
+    }
+
+    public int indexOf(T element){
+        int result = -1;
+        for (int i = 0; i < data.length; i++) {
+            if(data[i] == element){
+                result = i;
+                break;
+            }
+        }
+        return result;
+    }
+
+    public int lastIndexOf(T element){
+        int result = -1;
+        for (int i = data.length - 1; i >=0 ; i--) {
+            if(data[i] == element){
+                result = i;
+                break;
+            }
+        }
+        return result;
     }
 }
